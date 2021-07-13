@@ -3,14 +3,6 @@ You just released the optional tasks of this project. Have fun!
 0x00. ES6 Basics
 ================
 
-*   _US Program > Trimester 3 - Full-Stack Web > WP1000_
-*   By Johann Kerbrat, Engineering Manager at Uber Works
-*   Ongoing project - started 07-12-2021, must end by 07-13-2021 (in about 3 hours) - you're done with 8% of tasks.
-*   Checker was released at 07-12-2021 12:00 PM
-*   QA review fully automated.
-*   arrow functions block scope block scoping for-of loop iterators javascript rest parameter spread parameter string templating
-    
-
 Concepts
 --------
 
