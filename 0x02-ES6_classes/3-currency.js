@@ -3,20 +3,22 @@ export default class Currency {
     this._code = code;
     this._name = name;
   }
-  set code(newVal){
+
+  set code(newVal) {
     if (typeof newVal !== 'string') {
       throw new TypeError('Code must be a string');
     }
     this._code = newVal;
   }
 
-  set name(newVal){
+  set name(newVal) {
     if (typeof newVal !== 'string') {
       throw new TypeError('Name must be a string');
     }
     this._name = newVal;
   }
+
   displayFullCurrency() {
-    console.log(this._name + ' (' + this._code + ')');
+    console.log(`${this._name} (${this._code})`);
   }
 }
