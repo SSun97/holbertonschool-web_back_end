@@ -4,11 +4,19 @@ export default class Currency {
     this._name = name;
   }
 
+  get code () {
+    return this._code;
+  }
+
   set code(newVal) {
     if (typeof newVal !== 'string') {
       throw new TypeError('Code must be a string');
     }
     this._code = newVal;
+  }
+
+  get name () {
+    return this._name;
   }
 
   set name(newVal) {
