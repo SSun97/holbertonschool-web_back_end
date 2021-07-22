@@ -1,5 +1,5 @@
 export default function cleanSet(set, startString) {
-  if (startString === []) return '';
+  if (startString === []) return startString;
   const array = [...set].filter((el) => el);
   const newArray = array.filter((item) => item.startsWith(startString));
   const arrayAfterCut = newArray.map((item) => item.substring(startString.length));
