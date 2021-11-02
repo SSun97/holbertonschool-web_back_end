@@ -7,8 +7,9 @@ import typing
 
 Nonetype = type(None)
 
+
 def safe_first_element(lst: typing.Sequence[typing.Any]) ->\
-                            typing.Union[typing.Any, Nonetype]:
+        typing.Union[typing.Any, Nonetype]:
     if lst:
         return lst[0]
     else:
