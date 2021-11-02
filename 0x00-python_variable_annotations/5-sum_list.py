@@ -2,9 +2,9 @@
 """ type-annotated function sum_list """
 
 
-input_list = list[float]
+Input_list = list[float]
 
-def sum_list(input_list) -> float:
+def sum_list(input_list: Input_list) -> float:
     """ Doc """
     sum: float = 0
     for item in input_list:
