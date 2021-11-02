@@ -7,6 +7,7 @@ import typing
 
 Input_list = typing.List[float]
 
+
 def sum_list(input_list: Input_list) -> float:
     """ Doc """
     sum: float = 0
