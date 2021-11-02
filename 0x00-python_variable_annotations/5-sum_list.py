@@ -2,6 +2,8 @@
 """ type-annotated function sum_list """
 
 
+input_list = list[float]
+
 def sum_list(input_list) -> float:
     """ Doc """
     sum: float = 0
