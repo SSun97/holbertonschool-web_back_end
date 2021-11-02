@@ -5,4 +5,3 @@
 def to_str(n: float) -> str:
     """ Doc """
     return str(n)
-
