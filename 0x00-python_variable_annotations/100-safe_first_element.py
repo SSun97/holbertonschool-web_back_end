@@ -2,12 +2,13 @@
 """ type-annotated function duck-typed """
 
 
-from types import NoneType
+import types
 import typing
 
+Nonetype = type(None)
 
 def safe_first_element(lst: typing.Sequence[typing.Any]) ->\
-                            typing.Union[typing.Any, NoneType]:
+                            typing.Union[typing.Any, Nonetype]:
     if lst:
         return lst[0]
     else:
