@@ -2,7 +2,10 @@
 """ type-annotated function sum_list """
 
 
-Input_list = list[float]
+import typing
+
+
+Input_list = typing.List[float]
 
 def sum_list(input_list: Input_list) -> float:
     """ Doc """
