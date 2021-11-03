@@ -2,11 +2,11 @@
 """ Write an asynchronous coroutine that takes in 2 integer arguments  """
 
 import asyncio
-import random
+import typing
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-async def wait_n(n: int, max_delay: int = 10) -> list[float]:
+async def wait_n(n: int, max_delay: int = 10) -> typing.List[float]:
     """ Doc """
     arr = []
     arr1 = []
