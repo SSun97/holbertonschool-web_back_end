@@ -11,6 +11,7 @@ Nonetype = type(None)
 def safe_first_element(lst: typing.Sequence[typing.Any]) ->\
         typing.Union[typing.Any, Nonetype]:
     """ Doc """
+
     if lst:
         return lst[0]
     else:
