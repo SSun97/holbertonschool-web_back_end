@@ -10,6 +10,7 @@ class FIFOCache(BaseCaching):
 and is a caching system """
 
     def __init__(self):
+        """ init a object base on BaseCaching """
         # self.cache_data = {}
         super().__init__()
         self.key_list = []
