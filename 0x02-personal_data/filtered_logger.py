@@ -5,7 +5,8 @@ returns the log message obfuscated: """
 from typing import List
 import re
 import logging
-
+PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
+""" important PIIs or information that you must hide in your logs """
 
 class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class
@@ -36,3 +37,14 @@ def filter_datum(fields: List[str],
                          f'{info}={redaction}{separator}',
                          message)
     return message
+
+
+def get_logger() -> logging.Logger:
+    """ takes no arguments returns a logging.Logger object """
+    logger = logging.getLogger("user_data")
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
+    handler = logging.StreamHandler()
+    handler.setFormatter(RedactingFormatter(PII_FIELDS))
+    logger.addHandler(handler)
+    return logger
