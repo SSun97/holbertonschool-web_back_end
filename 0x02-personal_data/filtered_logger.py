@@ -70,17 +70,16 @@ def main():
     cursor = dbObj.cursor()
     cursor.execute("SELECT * FROM users;")
     result = cursor.fetchall()
-    for row in result:
-        message = f"name={row[0]}; " + \
-                  f"email={row[1]}; " + \
-                  f"phone={row[2]}; " + \
-                  f"ssn={row[3]}; " + \
-                  f"password={row[4]};"
-        print(message)
-        logger = logging.LogRecord("my_logger", logging.INFO,
-                                   None, None, message, None, None)
+    for row in cursor:
+        record = ''
+        i = 0
+        for header in cursor.column_names:
+            record += f"{header}={row[i]}; "
+            i += 1
+        log_record = logging.LogRecord("user_data", logging.INFO,
+                                       None, None, record, None, None)
         formatter = RedactingFormatter(PII_FIELDS)
-        formatter.format(logger)
+        print(formatter.format(log_record))
     cursor.close()
     dbObj.close()
 
