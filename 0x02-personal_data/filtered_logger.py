@@ -8,6 +8,7 @@ import logging
 PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
 """ important PIIs or information that you must hide in your logs """
 
+
 class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class
         """
