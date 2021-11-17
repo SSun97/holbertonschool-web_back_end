@@ -69,7 +69,7 @@ def main():
     dbObj = get_db()
     cursor = dbObj.cursor()
     cursor.execute("SELECT * FROM users;")
-    result = cursor.fetchall()
+    # result = cursor.fetchall()
     for row in cursor:
         record = ''
         i = 0
