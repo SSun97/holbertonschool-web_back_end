@@ -13,8 +13,8 @@ def unauthorized() -> str:
 
 @app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
 def forbidden() -> str:
-  """ endpoint to testing 403 error handler """
-  abort(403)
+    """ endpoint to testing 403 error handler """
+    abort(403)
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
