@@ -8,13 +8,13 @@ class Auth:
     """ class for authorization """
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
-        """ Public method return False """
+        """ require authorithation """
         if path is None or excluded_paths is None or not len(excluded_paths):
             return True
         if path[-1] != '/':
             path += '/'
         for i in excluded_paths:
-            if i.endswith('/api/v1/status/'):
+            if i.endswith('*'):
                 if path.startswith(i[:1]):
                     return False
         if path in excluded_paths:
