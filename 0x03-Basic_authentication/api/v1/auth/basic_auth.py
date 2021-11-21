@@ -2,6 +2,8 @@
 """ Create a class BasicAuth that inherits from Auth """
 
 from api.v1.auth.auth import Auth
+import re
+from base64 import b64decode
 
 
 class BasicAuth(Auth):
@@ -17,3 +19,30 @@ class BasicAuth(Auth):
         if not authorization_header.startswith('Basic '):
             return None
         return authorization_header.split(' ')[1]
+
+    def is_base64(str):
+        """ validate string """
+        expression = "^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$"
+
+        matches = re.match(expression, str)
+
+        if matches:
+            return True
+        else:
+            return False
+
+    def decode_base64_authorization_header(self,
+                                           base64_authorization_header: str)\
+            -> str:
+        """ Decode Base64 method """
+        if base64_authorization_header is None:
+            return None
+        if not isinstance(base64_authorization_header, str):
+            return None
+        if not self.is_base64(base64_authorization_header):
+            return None
+        else:
+            baseEncode = base64_authorization_header.encode('utf-8')
+            baseDecode = b64decode(baseEncode)
+            decodedValue = baseDecode.decode('utf-8')
+            return decodedValue
