@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ Create a class BasicAuth that inherits from Auth """
 
+from typing import Tuple
 from api.v1.auth.auth import Auth
 import re
 from base64 import b64decode
@@ -49,3 +50,16 @@ class BasicAuth(Auth):
             return decodedValue
         except Exception:
             return None
+
+    def extract_user_credentials(self,
+                                 decoded_base64_authorization_header:
+                                 str) -> Tuple[str, str]:
+        """ User credentials """
+        if decoded_base64_authorization_header is None:
+            return None, None
+        if not isinstance(decoded_base64_authorization_header, str):
+            return None, None
+        if ':' not in decoded_base64_authorization_header:
+            return None, None
+        credentials = decoded_base64_authorization_header.split(':')
+        return credentials[0], credentials[1]
