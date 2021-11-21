@@ -18,7 +18,8 @@ class Auth:
                 return False
         if path not in excluded_paths:
             return True
-        return False
+        else:
+            return False
 
     def authorization_header(self, request=None) -> str:
         """ Public method return None """
