@@ -15,7 +15,8 @@ class Auth:
             path += '/'
         for i in excluded_paths:
             if i.endswith('/api/v1/status/'):
-                return False
+                if path.startswith(i[:1]):
+                    return False
         if path in excluded_paths:
             return False
         return True
