@@ -16,10 +16,9 @@ class Auth:
         for i in excluded_paths:
             if i.endswith('/api/v1/status/'):
                 return False
-        if path not in excluded_paths:
-            return True
-        else:
+        if path in excluded_paths:
             return False
+        return True
 
     def authorization_header(self, request=None) -> str:
         """ Public method return None """
