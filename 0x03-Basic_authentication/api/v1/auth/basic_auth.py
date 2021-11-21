@@ -20,16 +20,17 @@ class BasicAuth(Auth):
             return None
         return authorization_header.split(' ')[1]
 
-    def is_base64(str):
-        """ validate string """
-        expression = "^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$"
+    # def is_base64(str):
+    #     """ validate string """
+    #     expression = "^([A-Za-z0-9+/]{4})*\
+    # ([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$"
 
-        matches = re.match(expression, str)
+    #     matches = re.match(expression, str)
 
-        if matches:
-            return True
-        else:
-            return False
+    #     if matches:
+    #         return True
+    #     else:
+    #         return False
 
     def decode_base64_authorization_header(self,
                                            base64_authorization_header: str)\
@@ -39,10 +40,12 @@ class BasicAuth(Auth):
             return None
         if not isinstance(base64_authorization_header, str):
             return None
-        if not self.is_base64(base64_authorization_header):
-            return None
-        else:
+        # if not self.is_base64(base64_authorization_header):
+        #     return None
+        try:
             baseEncode = base64_authorization_header.encode('utf-8')
             baseDecode = b64decode(baseEncode)
             decodedValue = baseDecode.decode('utf-8')
             return decodedValue
+        except Exception:
+            return None
