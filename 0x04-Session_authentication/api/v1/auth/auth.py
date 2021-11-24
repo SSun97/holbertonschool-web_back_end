@@ -3,6 +3,7 @@
 from flask import request
 from typing import List, TypeVar
 from os import getenv
+from models.user import User
 
 
 class Auth:
@@ -36,4 +37,10 @@ class Auth:
 
     def current_user(self, request=None) -> TypeVar('User'):
         """ Public method returns None """
-        return None
+        session_id = self.session_cookie(request)
+        user_id = self.user_id_for_session_id(session_id)
+
+        try:
+            return User.get(id=user_id)
+        except KeyError:
+            return None
