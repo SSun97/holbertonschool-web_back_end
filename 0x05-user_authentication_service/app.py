@@ -3,7 +3,7 @@
 
 from flask import Flask, request, jsonify, abort, render_template
 from werkzeug.utils import redirect
-from werkzeug.wrappers import response
+from sqlalchemy.orm.exc import NoResultFound
 # from flask.json import jsonify
 from auth import Auth
 
@@ -60,6 +60,19 @@ def logout():
             AUTH.destroy_session(user.id)
             return redirect("/")
     abort(403)
+
+@app.route("/profile", method=['GET'])
+def profile():
+    """ get the profile of user """
+
+    session_id = request.cookies.get('session_id')
+    if session_id:
+        try:
+            user = AUTH.get_user_from_session_id(session_id)
+            response = jsonify({"email": "{}".format(user.email)})
+            return response, 200
+        except ValueError:
+            return None
 
 
 if __name__ == "__main__":
