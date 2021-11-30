@@ -50,7 +50,7 @@ def login() -> str:
 
 
 @app.route("/sessions", methods=['DELETE'])
-def logout(session_id: str):
+def logout():
     """ logout session """
 
     session_id = request.cookies.get('session_id')
