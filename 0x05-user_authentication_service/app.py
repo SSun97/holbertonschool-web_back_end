@@ -39,7 +39,7 @@ def login() -> str:
     email = request.form.get('email')
     password = request.form.get('password')
 
-    if not email or not password or not Auth.valid_login(email, password):
+    if not email or not password or not AUTH.valid_login(email, password):
         abort(401)
 
     session_id = Auth.create_session(email)
