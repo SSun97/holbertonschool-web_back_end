@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ create flass app """
 
-from flask import Flask, request, jsonify, abort
+from flask import Flask, request, jsonify, abort, render_template
 from werkzeug.utils import redirect
 from werkzeug.wrappers import response
 # from flask.json import jsonify
@@ -58,7 +58,7 @@ def logout(session_id: str):
     if not user:
         abort(403)
     AUTH.destroy_session(user.id)
-    return redirect("http://0.0.0:5500")
+    return redirect("/", code=302)
 
 
 if __name__ == "__main__":
