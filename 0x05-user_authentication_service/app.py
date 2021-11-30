@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """ create flass app """
 
-import re
-from flask import Flask, request, jsonify, abort, render_template
-from werkzeug.datastructures import V
-from werkzeug.utils import redirect
-from sqlalchemy.orm.exc import NoResultFound
+
+from flask import Flask, request, jsonify, abort, redirect
+
+
 # from flask.json import jsonify
 from auth import Auth
 
