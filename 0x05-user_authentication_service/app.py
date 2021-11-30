@@ -61,6 +61,7 @@ def logout():
             return redirect("/")
     abort(403)
 
+
 @app.route("/profile", methods=['GET'])
 def profile():
     """ get the profile of user """
@@ -73,6 +74,7 @@ def profile():
             return response, 200
         except ValueError:
             return None
+    abort(403)
 
 
 if __name__ == "__main__":
