@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """ create flass app """
 
+import re
 from flask import Flask, request, jsonify, abort, render_template
+from werkzeug.datastructures import V
 from werkzeug.utils import redirect
 from sqlalchemy.orm.exc import NoResultFound
 # from flask.json import jsonify
@@ -75,6 +77,18 @@ def profile():
         except ValueError:
             return None
     abort(403)
+
+
+@app.route("/reset_password", methods=['POST'])
+def get_reset_password_token():
+    """ get the token if the user is exist """
+    email = request.form.get('email')
+    try:
+        reset_token = AUTH.get_user_from_session_id(email)
+        return jsonify({"email": "{}".format(email),
+                        "reset_token": "{}".format(reset_token)}), 200
+    except ValueError:
+        abort(403)
 
 
 if __name__ == "__main__":
