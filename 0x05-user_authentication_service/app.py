@@ -83,6 +83,8 @@ def profile():
 def get_reset_password_token():
     """ get the token if the user is exist """
     email = request.form.get('email')
+    if not email:
+        abort(403)
     try:
         reset_token = AUTH.get_user_from_session_id(email)
         return jsonify({"email": "{}".format(email),
