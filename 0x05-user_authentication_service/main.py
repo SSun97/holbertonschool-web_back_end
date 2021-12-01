@@ -37,7 +37,8 @@ def profile_unlogged() -> None:
 def profile_logged(session_id: str) -> None:
     """ test """
     data = {"session_id": session_id}
-    """ https://www.kite.com/python/answers/how-to-send-cookies-using-requests-in-python """
+    """ https://www.kite.com/python/answers/
+    how-to-send-cookies-using-requests-in-python """
     response = requests.get(f'{URL}/profile', cookies=data)
     assert response.status_code == 200, "Test fail"
 
