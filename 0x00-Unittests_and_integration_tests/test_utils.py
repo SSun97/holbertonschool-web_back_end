@@ -25,6 +25,5 @@ class TestAccessNestedMap(unittest.TestCase):
         """ Test function acces_nested_map when Error raised """
         with self.assertRaises(KeyError) as error:
             access_nested_map(nested_map, path)
-        print(error.exception.args)
         self.assertEqual(error.exception.args[0], path[-1])
 
