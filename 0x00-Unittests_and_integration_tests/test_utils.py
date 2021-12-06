@@ -2,7 +2,7 @@
 """ unitest and unitest.mock """
 from parameterized import parameterized
 import unittest
-from unittest.mock import patch
+from unittest import mock
 from utils import access_nested_map, get_json
 
 
@@ -35,9 +35,9 @@ class TestGetJson(unittest.TestCase):
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False}),
     ])
-    @patch('test_utils.get_json')
+    @mock.patch('test_utils.get_json')
     def test_get_json(self, test_url, test_payload, mock_get_json):
-        """ test get json function """
+        """ test get json function, mock path where function is used """
         mock_get_json.return_value = test_payload
         expected = get_json(test_url)
         self.assertEqual(expected, test_payload)
