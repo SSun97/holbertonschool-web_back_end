@@ -42,8 +42,10 @@ class TestGetJson(unittest.TestCase):
         expected = get_json(test_url)
         self.assertEqual(expected, test_payload)
 
+
 class TestMemoize(unittest.TestCase):
     """ class for testing memoize funvtion """
+
     def test_memoize(self):
         """ test memoize function """
 
