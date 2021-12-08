@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-""" Parameterize and patch as decorators, Mocking a property, More patching,
-    Parameterize, Integration test: fixtures, Integration tests """
+""" Parameterize and patch as decorators """
 import unittest
 from unittest.mock import patch, PropertyMock, Mock
 from parameterized import parameterized
@@ -10,8 +9,7 @@ from urllib.error import HTTPError
 
 
 class TestGithubOrgClient(unittest.TestCase):
-    """ TESTCASE """
-    """ inputs to test the functionality """
+    """ TEST github org client """
     @parameterized.expand([
         ("google"),
         ("abc"),
@@ -23,3 +21,16 @@ class TestGithubOrgClient(unittest.TestCase):
         test_return = test_client.org
         self.assertEqual(test_return, mock_get.return_value)
         mock_get.assert_called_once
+
+    def test_public_repos_url(self):
+        """ test public repo's url """
+        with patch.object(GithubOrgClient,
+                          "org",
+                          new_callable=PropertyMock,
+                          return_value={"repos_url": "holberton"}) as mock_get:
+            test_json = {"repos_url": "holberton"}
+            test_client = GithubOrgClient(test_json.get("repos_url"))
+            test_return = test_client._public_repos_url
+            mock_get.assert_called_once
+            self.assertEqual(test_return,
+                             mock_get.return_value.get("repos_url"))
