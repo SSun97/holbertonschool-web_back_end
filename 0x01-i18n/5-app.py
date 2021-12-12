@@ -38,7 +38,7 @@ def get_locale():
         return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-def get_usr():
+def get_user():
     """ get user return a user dictionary """
     try:
         usr_id = request.args.get('login_as')
@@ -49,8 +49,9 @@ def get_usr():
 
 @app.before_request
 def before_request():
-    """ before request, g is only available for the lifetime of this request. """
-    g.usr = get_usr()
+    """ before request, g is only available for the lifetime of this request.
+    """
+    g.usr = get_user()
 
 
 @app.route('/')
