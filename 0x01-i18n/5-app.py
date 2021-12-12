@@ -28,12 +28,6 @@ app.config.from_object(Config)
 """ use Config class for configurition """
 
 
-@app.route('/')
-def hello():
-    """ Route home directory """
-    return render_template('5-index.html')
-
-
 @babel.localeselector
 def get_locale():
     """ get locale function """
@@ -57,6 +51,12 @@ def get_usr():
 def before_request():
     """ before request, g is only available for the lifetime of this request. """
     g.usr = get_usr()
+
+
+@app.route('/')
+def hello():
+    """ Route home directory """
+    return render_template('5-index.html')
 
 
 if __name__ == '__main__':
