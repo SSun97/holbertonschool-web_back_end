@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ module for application i18n and i10n """
 from flask import Flask, render_template
-from flask_babel import Babel, gettext as _
+from flask_babel import Babel
 
 app = Flask(__name__)
 babel = Babel(app)
