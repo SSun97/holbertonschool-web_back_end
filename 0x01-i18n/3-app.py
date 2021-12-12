@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+""" module for application i18n and i10n """
 from flask import Flask, render_template, request
 from flask_babel import Babel, gettext as _
 
@@ -7,7 +8,8 @@ babel = Babel(app)
 
 
 class Config(object):
-    LANGUAGE = ["en", "fr"]
+    """ class for configurition """
+    LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
