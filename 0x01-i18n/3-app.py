@@ -5,6 +5,7 @@ from flask_babel import Babel, gettext
 
 app = Flask(__name__)
 babel = Babel(app)
+gettext.__doc__ = "This is a doc adding to gettext"
 """ instantiate the Babel object """
 
 
