@@ -18,6 +18,7 @@ class Config(object):
 app.config.from_object(Config)
 """ use Config class for configurition """
 
+
 @app.route('/')
 def hello():
     """ Route home directory """
