@@ -28,7 +28,7 @@ def hello():
 @babel.localeselector
 def get_locale():
     """ get locale function """
-    return request.accept_languages.best_match(app.config['LANGUAGE'])
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == '__main__':
