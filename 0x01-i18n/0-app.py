@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+""" module for application i18n and i10n """
 from flask import Flask, render_template
 
 app = Flask(__name__)
