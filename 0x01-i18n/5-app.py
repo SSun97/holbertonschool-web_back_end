@@ -51,7 +51,7 @@ def get_user():
 def before_request():
     """ before request, g is only available for the lifetime of this request.
     """
-    g.usr = get_user()
+    g.user = get_user()
 
 
 @app.route('/')
