@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
+    """ Route home directory """
     return render_template('0-index.html')
 
 

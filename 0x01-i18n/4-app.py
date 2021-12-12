@@ -17,11 +17,13 @@ app.config.from_object(Config)
 
 @app.route('/')
 def hello():
+    """ Route home directory """
     return render_template('4-index.html')
 
 
 @babel.localeselector
 def get_locale():
+    """ get locale function """
     local_lan = request.args.get('locale')
     if local_lan in app.config['LANGUAGE']:
         return local_lan

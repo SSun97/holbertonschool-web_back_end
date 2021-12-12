@@ -17,6 +17,7 @@ app.config.from_object(Config)
 
 @app.route('/')
 def hello():
+    """ Route home directory """
     return render_template('1-index.html')
 
 
