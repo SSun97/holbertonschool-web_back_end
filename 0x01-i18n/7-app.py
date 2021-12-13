@@ -50,12 +50,13 @@ def get_locale():
 def get_timezone():
     """ get timezone function """
     timezone = request.args.get('timezone')
+    print(timezone)
     try:
         if timezone in pytz.all_timezones:
             return timezone
     except:
         raise pytz.exceptions.UnknownTimeZoneError
-
+    print(timezone)
     user_id = request.args.get('login_as')
     timezone = users[int(user_id)]['timezone']
     try:
