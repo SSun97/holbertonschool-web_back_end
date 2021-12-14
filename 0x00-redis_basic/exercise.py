@@ -72,6 +72,7 @@ class Cache():
         data = self._redis.get(key)
         return int(data.decode("utf-8"))
 
+
 def replay(method: Callable):
     """ display the history of calls of function """
     key = method.__qualname__
