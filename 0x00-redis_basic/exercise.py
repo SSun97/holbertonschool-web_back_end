@@ -5,6 +5,19 @@ exercise file
 import redis
 import uuid
 from typing import Callable, Union
+from functools import wraps
+
+
+def count_calls(fn: Callable) -> Callable:
+    """ count calls """
+    key = fn.__qualname__
+
+    @wraps(fn)
+    def wrapper(self, *args, **kwargs):
+        """ wrapped funcion """
+        self._redis.incr(key)
+        return fn(self, *args, **kwargs)
+    return wrapper
 
 
 class Cache():
@@ -17,6 +30,7 @@ class Cache():
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """ store date to database """
         key = str(uuid.uuid4())
