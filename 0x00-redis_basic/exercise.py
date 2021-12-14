@@ -2,7 +2,6 @@
 """
 exercise file
 """
-from typing_extensions import Self
 import redis
 import uuid
 from typing import Callable, Union
