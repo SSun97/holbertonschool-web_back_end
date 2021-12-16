@@ -1,9 +1,9 @@
 -- Write a SQL script that creates a table users following these requirements:
 -- Make an attribute unique directly in the table schema will enforced your
 -- business rules and avoid bugs in your application
-CREATE DATABASE IF NOT EXISTS holberton;
-USE holberton;
-DROP TABLE IF EXISTS users;
+-- CREATE DATABASE IF NOT EXISTS holberton;
+-- USE holberton;
+-- DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS users (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	email VARCHAR(255) NOT NULL UNIQUE,
