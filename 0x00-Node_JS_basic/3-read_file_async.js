@@ -47,4 +47,4 @@ const countStudents = (path, printFlag = 1) => new Promise((resolve, reject) => 
   }
 });
 
-module.exports = countStudents;
+// module.exports = countStudents;
