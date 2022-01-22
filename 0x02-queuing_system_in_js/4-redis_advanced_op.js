@@ -19,10 +19,11 @@ const hashkey = 'HolbertonSchools';
 const data = {
   Portland: 50,
   Seattle: 80,
-  'New York': 20,
+  'New York': 30,
   Bogota: 20,
   Cali: 40,
-  Paris: 2
+  Paris: 2,
+  ABC: 3
 };
 
 setDataToHashTable(data, hashkey);
